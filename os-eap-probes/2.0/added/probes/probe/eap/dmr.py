@@ -223,7 +223,7 @@ class HealthCheckTest(Test):
         if results["result"]["step-2"].get("outcome") != "success" or not results["result"]["step-2"].get("result"):
             return (Status.HARD_FAILURE, "DMR health check step failed " + str(results["result"]["step-2"]))
 
-        outcome = results["result"]["step-2"]["result"].get("outcome")
+        outcome = results["result"]["step-2"]["result"].get("status")
         if outcome == "UP":
             return (Status.READY, "Status is UP")
 
